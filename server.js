@@ -21,7 +21,10 @@ app.get('/', (req,res,next) => next())
 
 app.use('/api/products', productRoutes)
 
-
+// Error handler middleware
+app.use((error, req, res, next) => {
+  res.status(500).json({ message: error.message })
+})
 
 // app.listen(PORT,() => console.log(`App is running on http://localhost:${PORT}`))
 
