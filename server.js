@@ -17,12 +17,12 @@ mongoose
   .catch(() => console.log('error mongodb'))
 
 app.use(express.json()) // 미들웨어 함수
-app.get('/', (req,res,next) => {
-  next()
-})
+app.get('/', (req,res,next) => next())
 
 app.use('/api/products', productRoutes)
 
 
 
-app.listen(PORT,() => console.log(`App is running on http://localhost:${PORT}`))
+// app.listen(PORT,() => console.log(`App is running on http://localhost:${PORT}`))
+
+module.exports = app;
